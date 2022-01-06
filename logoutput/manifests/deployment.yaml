@@ -1,17 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logoutput
+  name: logoutput-split
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: logoutput
+      app: logoutput-split
   template:
     metadata:
       labels:
-        app: logoutput
+        app: logoutput-split
     spec:
+      volumes:
+        - name: shared-logoutput
+          emptyDir: {}
       containers:
-        - name: logoutput
-          image: makeri89/logoutput:0.2
+        - name: logoutput-writer
+          image: makeri89/logoutput-writer:0.3
+          volumeMounts:
+            - mountPath: /usr/src/app/logs
+              name: shared-logoutput
+        - name: logoutput-reader
+          image: makeri89/logoutput-reader:0.5
+          volumeMounts:
+            - mountPath: /usr/src/app/logs
+              name: shared-logoutput
