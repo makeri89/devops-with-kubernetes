@@ -6,13 +6,6 @@ spec:
   rules:
   - http:
       paths:
-      - path: /pingpong
-        pathType: Prefix
-        backend:
-          service:
-            name: pingpong-svc
-            port:
-              number: 1235
       - path: /
         pathType: Prefix
         backend:

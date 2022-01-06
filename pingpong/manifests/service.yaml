@@ -5,8 +5,8 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: logoutput
+    app: pingpong
   ports:
-    - port: 1235
+    - port: 1234
       protocol: TCP
       targetPort: 4000

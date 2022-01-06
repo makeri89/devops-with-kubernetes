@@ -4,7 +4,7 @@ const app = express()
 
 let count = 0
 
-app.get('/pingpong', (_req, res) => {
+app.get('/', (_req, res) => {
   res.send(`pong ${count}`)
   count++
 })

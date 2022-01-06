@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: pingpong
-          image: makeri89/pingpong:0.2
+          image: makeri89/pingpong:0.3
