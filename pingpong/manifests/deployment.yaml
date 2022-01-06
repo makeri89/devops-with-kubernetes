@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logoutput
+  name: pingpong
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: logoutput
+      app: pingpong
   template:
     metadata:
       labels:
-        app: logoutput
+        app: pingpong
     spec:
       containers:
-        - name: logoutput
-          image: makeri89/logoutput:0.2
+        - name: pingpong
+          image: makeri89/pingpong:0.2
